@@ -12,8 +12,6 @@
 int main()
 {
     FILE* fpTxt = NULL;
-    char record[81] = { 0 };
-
     fpTxt = fopen("myTextFile.txt", "w");
 
     if (fpTxt == NULL)
@@ -37,6 +35,8 @@ int main()
         return -1;
     }
 
+    FILE* fp = NULL;
+    char record[81] = { 0 };
 
 
 
