@@ -11,12 +11,12 @@
 
 int main()
 {
-    FILE* fp = NULL;
+    FILE* fpTxt = NULL;
     char record[81] = { 0 };
 
-    fp = fopen("myTextFile.txt", "w");
+    fpTxt = fopen("myTextFile.txt", "w");
 
-    if (fp == NULL)
+    if (fpTxt == NULL)
     {
         printf("Error-fopen function: Can't open file for writing\n");
         return -1;
@@ -24,14 +24,14 @@ int main()
 
     for (int i = 1; i < 3; i++)
     {
-        if (fprintf(fp, "This is line %d.\n", i) < 0)
+        if (fprintf(fpTxt, "This is line %d.\n", i) < 0)
         {
             printf("Error-fopen function: Can't write line to file\n");
             return -1;
         }
     }
 
-    if (fclose(fp) != 0)
+    if (fclose(fpTxt) != 0)
     {
         printf("Error-fclose function:Can't close file opened for writing\n");
         return -1;
