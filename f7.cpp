@@ -11,7 +11,7 @@
 
 int main()
 {
-    FILE* fpTxt = NULL;
+    FILE *fpTxt = NULL;
     fpTxt = fopen("myTextFile.txt", "w");
 
     if (fpTxt == NULL)
@@ -35,13 +35,28 @@ int main()
         return -1;
     }
 
-    FILE* fp = NULL;
-    char record[81] = { 0 };
+    FILE *fpBinary = NULL;
+    const unsigned short kBinaryData[] = { 26946, 24942, 31090, 25632, 29793, 8289, 28518, 8306, 28537, 33141, 39308 };
+    
+    fpBinary = fopen("myBinaryFile.data", "wb");
+    
+    if (fpBinary == NULL)
+    {
+        printf("Error-fopen function: Can't open file for writing\n");
+        return -1;
+    }
 
+    if (fwrite(kBinaryData, 1, sizeof(kBinaryData), fpBinary) < 11)
+    {
+        printf("Error-fwrite function: Can't write to file\n");
+        return -1;
+    }
 
-
-
-
+    if (fclose(fpBinary) != 0)
+    {
+        printf("Error-fclose function:Can't close file opened for writing\n");
+        return -1;
+    }
 
 	return 0;
 }
