@@ -46,7 +46,7 @@ int main()
         return -1;
     }
 
-    if (fwrite(kBinaryData, 1, sizeof(kBinaryData), fpBinary) < 11)
+    if (fwrite(kBinaryData, 1, sizeof(kBinaryData), fpBinary) < sizeof(kBinaryData))
     {
         printf("Error-fwrite function: Can't write to file\n");
         return -1;
