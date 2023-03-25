@@ -25,14 +25,14 @@ int main()
         if (fprintf(fpTxt, "This is line %d.\n", i) < 0)
         {
             printf("Error-fopen function: Can't write line to file\n");
-            return -1;
+            return -2;
         }
     }
 
     if (fclose(fpTxt) != 0)
     {
         printf("Error-fclose function:Can't close file opened for writing\n");
-        return -1;
+        return -3;
     }
 
     FILE *fpBinary = NULL;
@@ -43,19 +43,19 @@ int main()
     if (fpBinary == NULL)
     {
         printf("Error-fopen function: Can't open file for writing\n");
-        return -1;
+        return -4;
     }
 
     if (fwrite(kBinaryData, 1, sizeof(kBinaryData), fpBinary) < sizeof(kBinaryData))
     {
         printf("Error-fwrite function: Can't write to file\n");
-        return -1;
+        return -5;
     }
 
     if (fclose(fpBinary) != 0)
     {
         printf("Error-fclose function:Can't close file opened for writing\n");
-        return -1;
+        return -6;
     }
 
 	return 0;
